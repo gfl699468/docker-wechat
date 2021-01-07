@@ -22,6 +22,18 @@ fedora 26 结果：
 audio:x:63:
 ```
 
+### 更新
+
+进入docker容器：docker exec -it wechat bash
+运行以下命令更新深度软件包：
+
+```bash
+apt-get update
+
+apt-get install -y deepin.com.wechat
+
+```
+
 ### 运行
 
 ### docker-compose
