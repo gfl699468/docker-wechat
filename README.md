@@ -48,7 +48,7 @@ services:
       - /dev/snd
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - $HOME/WeChatFiles:/WeChatFiles
+      - /home/peter/WeChatFiles:/WeChatFiles #使用自己用户目录
     environment:
       - DISPLAY=unix$DISPLAY
       - QT_IM_MODULE=fcitx
