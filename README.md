@@ -44,6 +44,7 @@ services:
   wechat:
     image: bestwu/wechat
     container_name: wechat
+    ipc: host
     devices:
       - /dev/snd
     volumes:
@@ -62,7 +63,7 @@ services:
 或
 
 ```bash
-    docker run -d --name wechat --device /dev/snd \
+    docker run -d --name wechat --device /dev/snd --ipc="host"\
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v $HOME/WeChatFiles:/WeChatFiles \
     -e DISPLAY=unix$DISPLAY \
