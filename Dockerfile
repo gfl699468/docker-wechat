@@ -1,5 +1,5 @@
 FROM bestwu/wine:i386
-LABEL maintainer='Peter Wu <piterwu@outlook.com>'
+LABEL maintainer='Jicki <jicki@qq.com>'
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends procps deepin.com.wechat && \
@@ -14,7 +14,8 @@ ENV APP=WeChat \
     AUDIO_GID=63 \
     VIDEO_GID=39 \
     GID=1000 \
-    UID=1000
+    UID=1000 \
+    DPI=96
 
 RUN groupadd -o -g $GID wechat && \
     groupmod -o -g $AUDIO_GID audio && \
@@ -23,7 +24,10 @@ RUN groupadd -o -g $GID wechat && \
     mkdir /WeChatFiles && \
     chown -R wechat:wechat /WeChatFiles && \
     ln -s "/WeChatFiles" "/home/wechat/WeChat Files" && \
-    sed -i 's/WeChat.exe" &/WeChat.exe"/g' "/opt/deepinwine/tools/run.sh"
+    #sed -i 's/WeChat.exe" &/WeChat.exe"/g' "/opt/deepinwine/tools/run.sh"
+    INSERTLINE=$(awk '{if(match($0,/ExtractApp\(\)/)){f=1}else if(match($0,/^}\s?$/)&&f){f=0;print NR-2}}' /opt/deepinwine/tools/run_v2.sh) && \
+    sed -i "${INSERTLINE}a\\\\tREGDPI=\$(printf '\"LogPixels\"=dword:%08x' \$DPI)\\n\\tsed -i \"s/\\\\\"LogPixels\\\\\"=.*$/\$REGDPI/g\" \$1/system.reg" /opt/deepinwine/tools/run_v2.sh
+
 
 VOLUME ["/WeChatFiles"]
 

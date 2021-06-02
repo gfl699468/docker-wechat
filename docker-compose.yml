@@ -1,0 +1,22 @@
+version: '2'
+services:
+  wechat:
+    image: jicki/docker-wechat:20210602
+    hostname: wechat    # 可选，用于好看
+    container_name: wechat
+    ipc: host
+    devices:
+      - /dev/snd        # 声音设备
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./wechatroot:/WeChatFiles
+      - ./wechathome:/HostHome # 可选，用于发送文件
+    environment:
+      DISPLAY: unix$DISPLAY
+      QT_IM_MODULE: fcitx
+      XMODIFIERS=@im: fcitx
+      GTK_IM_MODULE: fcitx
+      AUDIO_GID: 29 # 可选 执行 `getent group audio | cut -d: -f3` 命令获取本机 id
+      GID: 1000 # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
+      UID: 1000 # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
+      DPI: 128 # 可选 微信显示字体大小 默认96 
