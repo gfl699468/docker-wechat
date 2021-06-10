@@ -1,4 +1,4 @@
-FROM bestwu/wine:i386
+FROM jicki/wine:i386
 LABEL maintainer='Jicki <jicki@qq.com>'
 
 RUN apt-get update && \
