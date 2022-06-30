@@ -1,5 +1,7 @@
-FROM jicki/wine:i386
+ARG VERSION="latest"
+FROM jicki/deepin-wine:i386-${VERSION}
 LABEL maintainer='Jicki <jicki@qq.com>'
+
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends procps deepin.com.wechat && \
