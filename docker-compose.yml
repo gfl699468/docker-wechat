@@ -5,6 +5,7 @@ services:
     hostname: wechat    # 可选，用于好看
     container_name: wechat
     ipc: host
+    network_mode: host # --network host
     #devices:
     #  - /dev/snd        # 声音设备
     volumes:
