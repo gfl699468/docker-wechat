@@ -21,11 +21,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Login to ACR
-      uses: docker/login-action@v2
+      uses: aliyun/acr-login@v1
       with:
-        registry: https://registry.cn-hangzhou.aliyuncs.com
-        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
-        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
+        region-id: cn-hangzhou
+        access-key-id: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        access-key-secret: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
@@ -49,11 +49,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Login to ACR
-      uses: docker/login-action@v2
+      uses: aliyun/acr-login@v1
       with:
-        registry: https://registry.cn-hangzhou.aliyuncs.com
-        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
-        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
+        region-id: cn-hangzhou
+        access-key-id: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        access-key-secret: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
@@ -77,11 +77,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Login to ACR
-      uses: docker/login-action@v2
+      uses: aliyun/acr-login@v1
       with:
-        registry: https://registry.cn-hangzhou.aliyuncs.com
-        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
-        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
+        region-id: cn-hangzhou
+        access-key-id: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        access-key-secret: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
