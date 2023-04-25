@@ -1,7 +1,7 @@
 version: '2'
 services:
   wechat:
-    image: gfl699468/docker-wechat:latest
+    image: registry.cn-hangzhou.aliyuncs.com/docker-wechat/gfl699468/docker-wechat:latest
     hostname: wechat    # 可选，用于好看
     container_name: wechat
     ipc: host

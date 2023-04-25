@@ -20,12 +20,19 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to ACR
+      uses: docker/login-action@v2
+      with:
+        registry: https://registry.cn-hangzhou.aliyuncs.com
+        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
         context: ./docker-wine/ubuntu
         tags: |
           gfl699468/wine:i386-latest
+          registry.cn-hangzhou.aliyuncs.com/docker-wechat/wine:i386-latest
         push: true
   build_deepin_wine:
     runs-on: ubuntu-latest
@@ -41,12 +48,19 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to ACR
+      uses: docker/login-action@v2
+      with:
+        registry: https://registry.cn-hangzhou.aliyuncs.com
+        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
         context: ./docker-wine/i386
         tags: |
           gfl699468/deepin-wine:i386-latest
+          registry.cn-hangzhou.aliyuncs.com/docker-wechat/deepin-wine:i386-latest
         push: true
   build_wechat:
     runs-on: ubuntu-latest
@@ -62,11 +76,18 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to ACR
+      uses: docker/login-action@v2
+      with:
+        registry: https://registry.cn-hangzhou.aliyuncs.com
+        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
         context: ./
         tags: |
           gfl699468/docker-wechat:latest
+          registry.cn-hangzhou.aliyuncs.com/docker-wechat/docker-wechat:latest
         push: true
 
