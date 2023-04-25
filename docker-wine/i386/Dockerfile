@@ -1,5 +1,5 @@
 ARG VERSION="latest"
-FROM jicki/wine:i386-${VERSION}
+FROM gfl699468/wine:i386-${VERSION}
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 425956BB3E31DF51 && \
     echo 'deb http://packages.deepin.com/deepin stable main non-free contrib' > /etc/apt/sources.list && \

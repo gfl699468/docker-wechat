@@ -1,6 +1,6 @@
 ARG VERSION="latest"
-FROM jicki/deepin-wine:i386-${VERSION}
-LABEL maintainer='Jicki <jicki@qq.com>'
+FROM gfl699468/deepin-wine:i386-${VERSION}
+LABEL maintainer='Fanglin <fanglin.gu@gmail.com>'
 
 
 RUN apt-get update && \

@@ -1,7 +1,7 @@
 version: '2'
 services:
   wechat:
-    image: jicki/docker-wechat:20220701
+    image: gfl699468/docker-wechat:latest
     hostname: wechat    # 可选，用于好看
     container_name: wechat
     ipc: host
