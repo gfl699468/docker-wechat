@@ -23,9 +23,9 @@ jobs:
     - name: Login to ACR
       uses: aliyun/acr-login@v1
       with:
-        region-id: cn-hangzhou
-        access-key-id: "${{ secrets.ACR_REGISTRY_USERNAME }}"
-        access-key-secret: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
+        login-server: https://registry.cn-hangzhou.aliyuncs.com
+        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
@@ -51,9 +51,9 @@ jobs:
     - name: Login to ACR
       uses: aliyun/acr-login@v1
       with:
-        region-id: cn-hangzhou
-        access-key-id: "${{ secrets.ACR_REGISTRY_USERNAME }}"
-        access-key-secret: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
+        login-server: https://registry.cn-hangzhou.aliyuncs.com
+        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
@@ -79,9 +79,9 @@ jobs:
     - name: Login to ACR
       uses: aliyun/acr-login@v1
       with:
-        region-id: cn-hangzhou
-        access-key-id: "${{ secrets.ACR_REGISTRY_USERNAME }}"
-        access-key-secret: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
+        login-server: https://registry.cn-hangzhou.aliyuncs.com
+        username: "${{ secrets.ACR_REGISTRY_USERNAME }}"
+        password: "${{ secrets.ACR_REGISTRY_PASSWORD }}"
     - name: Build image and push to Docker Hub
       uses: docker/build-push-action@v2
       with:
