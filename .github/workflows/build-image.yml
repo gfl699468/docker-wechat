@@ -2,9 +2,9 @@ name: Build Image
 
 on:
   push:
-    branches: [ "docker_build" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "docker_build" ]
+    branches: [ "master" ]
 
 jobs:
   build_wine:
